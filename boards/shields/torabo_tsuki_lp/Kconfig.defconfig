@@ -15,10 +15,4 @@ config INPUT
 
 config ZMK_MOUSE
     default y
- # 💡 左側のビルド（SHIELD_TORABO_TSUKI_LP_LEFT）の時だけ、スクロール機能をONにするマクロ
-if SHIELD_TORABO_TSUKI_LP_LEFT
-config TORABO_TSUKI_LP_SCROLL_ENABLE
-    bool
-    default y
-endif
 endif
