@@ -57,8 +57,9 @@
 &trans  &trans   &trans   &trans        &kp DELETE    &kp TAB     &trans  &trans  &trans            &trans     &trans         &trans     &trans      &trans
             >;
         };
-    }
-;/* トラックボールのイベントリスナー設定 */
+    };
+};
+/* トラックボールのイベントリスナー設定 */
 &pinctrl {
     /* ここに既存の設定があればそのままでOKです */
 };
@@ -78,5 +79,4 @@
             input-processors = <&zip_xy_to_scroll_mapper>;
         }
     };
-};
 };
