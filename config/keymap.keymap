@@ -57,5 +57,26 @@
 &trans  &trans   &trans   &trans        &kp DELETE    &kp TAB     &trans  &trans  &trans            &trans     &trans         &trans     &trans      &trans
             >;
         };
+    }
+;/* トラックボールのイベントリスナー設定 */
+&pinctrl {
+    /* ここに既存の設定があればそのままでOKです */
+};
+
+/* 入力イベント（トラックボール移動）を特定のレイヤーでスクロールに変換 */
+&trackball_listener {
+    status = "okay";
+    
+    /* レイヤー別の特別ルールを設定 */
+    layer-overrides {
+        compatible = "zmk,input-processor-layer-overrides";
+        
+        /* 💡 3番のレイヤー（SCROLLレイヤー）にいるときだけ発動 */
+        scroll_layer {
+            layers = <3>; 
+            /* カーソル移動（XY）をスクロール（Scroll）にマッピング変換 */
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        }
     };
+};
 };
