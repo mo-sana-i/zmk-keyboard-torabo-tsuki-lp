@@ -59,8 +59,8 @@
         };
     };
 };
-/* 💡 右側ビルドのエラーを防ぐため、安全に設定を上書きします */
-#if RC_HAS_NODE(DT_NODELABEL(trackball_listener))
+/* 💡 トラックボール設定がある時だけ処理を読み込みます */
+#if DT_NODE_EXISTS(DT_NODELABEL(trackball_listener))
 &trackball_listener {
     status = "okay";
     
