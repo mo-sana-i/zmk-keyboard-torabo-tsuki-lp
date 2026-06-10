@@ -59,24 +59,17 @@
         };
     };
 };
-/* トラックボールのイベントリスナー設定 */
-&pinctrl {
-    /* ここに既存の設定があればそのままでOKです */
-};
+/* 💡 エラー回避のため、新しくトラックボールのリスナーを定義します */
+/ {
+    trackball_listener: trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
 
-/* 入力イベント（トラックボール移動）を特定のレイヤーでスクロールに変換 */
-&trackball_listener {
-    status = "okay";
-    
-    /* レイヤー別の特別ルールを設定 */
-    layer-overrides {
-        compatible = "zmk,input-processor-layer-overrides";
-        
         /* 💡 3番のレイヤー（SCROLLレイヤー）にいるときだけ発動 */
         scroll_layer {
-            layers = <3>; 
-            /* カーソル移動（XY）をスクロール（Scroll）にマッピング変換 */
+            layers = <3>;
+            /* カーソル移動をスクロールに変換 */
             input-processors = <&zip_xy_to_scroll_mapper>;
-        }
+        };
     };
 };
