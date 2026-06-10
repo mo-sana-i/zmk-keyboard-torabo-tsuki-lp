@@ -59,7 +59,8 @@
         };
     };
 };
-/* 💡 リポジトリの正式なトラックボール定義を上書き（レイヤー3でスクロール化） */
+/* 💡 右側ビルドのエラーを防ぐため、安全に設定を上書きします */
+#if RC_HAS_NODE(DT_NODELABEL(trackball_listener))
 &trackball_listener {
     status = "okay";
     
@@ -70,3 +71,4 @@
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
+#endif
