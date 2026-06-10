@@ -59,17 +59,14 @@
         };
     };
 };
-/* 💡 エラー回避のため、新しくトラックボールのリスナーを定義します */
-/ {
-    trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-
-        /* 💡 3番のレイヤー（SCROLLレイヤー）にいるときだけ発動 */
-        scroll_layer {
-            layers = <3>;
-            /* カーソル移動をスクロールに変換 */
-            input-processors = <&zip_xy_to_scroll_mapper>;
-        };
+/* 💡 リポジトリの正式なトラックボール定義を上書き（レイヤー3でスクロール化） */
+&trackball_listener {
+    status = "okay";
+    
+    /* 3番のレイヤー（SCROLLレイヤー）にいるときだけ発動 */
+    scroll_layer {
+        layers = <3>;
+        /* カーソル移動をスクロールに変換 */
+        input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
