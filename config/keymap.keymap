@@ -59,3 +59,13 @@
         };
     };
 };
+/* 💡 左側のビルド（トラックボール設定が存在する時）だけ、安全にスクロール設定を流し込みます */
+#ifdef CONFIG_TORABO_TSUKI_LP_SCROLL_ENABLE
+&trackball_listener {
+    scroll_layer {
+        compatible = "zmk,input-processor-layer-overrides";
+        layers = <3>; /* 👈 3番のレイヤー（SCROLLレイヤー）にいるときだけ発動 */
+        input-processors = <&zip_xy_to_scroll_mapper>;
+    };
+};
+#endif
