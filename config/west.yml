@@ -3,17 +3,17 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: sekigon-gonnoc
-      url-base: https://github.com/sekigon-gonnoc
+      url-base: https://github.com
     - name: cormoran
       url-base: https://github.com
+
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: main
       import: app/west.yml
     - name: zmk-component-bmp-boost
       remote: sekigon-gonnoc
-      import: west.yml
       revision: v0.2
     - name: zmk-feature-status-led
       remote: sekigon-gonnoc
@@ -23,6 +23,7 @@ manifest:
       revision: torabo-tsuki
     - name: zmk-driver-iqs7211e
       remote: sekigon-gonnoc
+      revision: master
     - name: zmk-feature-cdc-acm-bootloader-trigger
       remote: sekigon-gonnoc
       revision: v0.2
@@ -32,5 +33,3 @@ manifest:
     - name: zmk-module-runtime-input-processor
       remote: cormoran
       revision: main
-  self:
-    path: config
