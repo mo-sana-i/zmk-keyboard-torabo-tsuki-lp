@@ -60,10 +60,6 @@
     };
 };
 
-/* ファイルの先頭付近 */
-#include <input/processors.dtsi>
-#include <input/processors/runtime-input-processor.dtsi>
-
 /* トラックボールのリスナー部分（名前は既存コードに合わせてください） */
 &trackball_listener {
     /* 既存のプロセッサ記述は削除/コメントアウトし、以下のみにする */
