@@ -59,9 +59,3 @@
         };
     };
 };
-
-/* トラックボールのリスナー部分（名前は既存コードに合わせてください） */
-&trackball_listener {
-    /* 既存のプロセッサ記述は削除/コメントアウトし、以下のみにする */
-    input-processors = <&mouse_runtime_input_processor>;
-};
