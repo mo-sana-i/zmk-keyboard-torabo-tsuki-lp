@@ -29,8 +29,5 @@ manifest:
     - name: zmk-feature-non-lipo-battery-management
       remote: sekigon-gonnoc
       revision: main
-    - name: zmk-module-runtime-input-processor
-      remote: cormoran
-      revision: main
   self:
     path: config
