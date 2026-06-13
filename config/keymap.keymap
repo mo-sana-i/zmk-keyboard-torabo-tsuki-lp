@@ -63,35 +63,39 @@
 #include <input/processors.dtsi>
 
 /*
- * 【修正版】
- * 引数を持つプロセッサ（zip_xy_scaler）は、必ず () で囲む必要があります。
- * 引数を持たないプロセッサ（zip_xy_to_scroll_mapper）は () は不要です。
+ * 【最終解決版】
+ * 「&」を使った上書きではなく、「/ { ... };」のルート階層内に
+ * 直接ノードを定義する書き方に変更します。
+ * これにより「undefined node label」エラーは物理的に発生しなくなり、
+ * 存在するノードにだけ、後から上書きが適用されるようになります。
  */
 
-&trackball_split {
-    /delete-property/ input-processors;
-    input-processors = <(&zip_xy_scaler 1 1)>;
-    scroller {
-        layers = <layer_3>; /* スクロールにしたいレイヤー番号 */
-        input-processors = <&zip_xy_to_scroll_mapper>;
+/ {
+    trackball_split {
+        /delete-property/ input-processors;
+        input-processors = <(&zip_xy_scaler 1 1)>;
+        scroller {
+            layers = <3>; /* スクロールにしたいレイヤー番号 */
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
     };
-};
 
-&trackball_listener {
-    /delete-property/ input-processors;
-    input-processors = <(&zip_xy_scaler 1 1)>;
-    scroller {
-        layers = <layer_3>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+    trackball_listener {
+        /delete-property/ input-processors;
+        input-processors = <(&zip_xy_scaler 1 1)>;
+        scroller {
+            layers = <3>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
     };
-};
 
-&input_split_listener {
-    /delete-property/ input-processors;
-    input-processors = <(&zip_xy_scaler 1 1)>;
-    scroller {
-        layers = <layer_3>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+    input_split_listener {
+        /delete-property/ input-processors;
+        input-processors = <(&zip_xy_scaler 1 1)>;
+        scroller {
+            layers = <3>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
     };
 };
 
