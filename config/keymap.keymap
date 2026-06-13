@@ -64,33 +64,33 @@
 
 /*
  * 【修正版】
- * すでに定義されているノードを「&」を使って正しく上書きします。
- * 存在しないノード名に対してはエラーが出ず無視されます。
+ * 引数を持つプロセッサ（zip_xy_scaler）は、必ず () で囲む必要があります。
+ * 引数を持たないプロセッサ（zip_xy_to_scroll_mapper）は () は不要です。
  */
 
 &trackball_split {
     /delete-property/ input-processors;
-    input-processors = <&zip_xy_scaler 1 1>;
+    input-processors = <(&zip_xy_scaler 1 1)>;
     scroller {
-        layers = <3>; /* スクロールにしたいレイヤー番号 */
+        layers = <layer_3>; /* スクロールにしたいレイヤー番号 */
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
 
 &trackball_listener {
     /delete-property/ input-processors;
-    input-processors = <&zip_xy_scaler 1 1>;
+    input-processors = <(&zip_xy_scaler 1 1)>;
     scroller {
-        layers = <3>;
+        layers = <layer_3>;
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
 
 &input_split_listener {
     /delete-property/ input-processors;
-    input-processors = <&zip_xy_scaler 1 1>;
+    input-processors = <(&zip_xy_scaler 1 1)>;
     scroller {
-        layers = <3>;
+        layers = <layer_3>;
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
