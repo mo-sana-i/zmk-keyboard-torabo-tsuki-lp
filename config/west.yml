@@ -31,6 +31,6 @@ manifest:
       revision: main
     - name: zmk-module-runtime-input-processor
       remote: cormoran
-      revision: v0.3-branch+dya
+      revision: main
   self:
     path: config
