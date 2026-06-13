@@ -63,15 +63,14 @@
 #include <input/processors.dtsi>
 
 /*
- * 【完全修正版】
- * input-processors は丸括弧 ( ) を使わず、
- * <&プロセッサ 引数> の形式で記述するのがZMKの正しい構文です。
+ * DYAモジュールを捨て、ZMK標準のスクロールマッパーのみを適用します。
+ * zip_xy_scaler（速度変更）も複雑化を避けるため外します。
+ * 丸括弧は一切使いません。
  */
 
 / {
     trackball_split {
         /delete-property/ input-processors;
-        input-processors = <&zip_xy_scaler 1 1>;
         scroller {
             layers = <3>; /* スクロールにしたいレイヤー番号 */
             input-processors = <&zip_xy_to_scroll_mapper>;
@@ -80,7 +79,6 @@
 
     trackball_listener {
         /delete-property/ input-processors;
-        input-processors = <&zip_xy_scaler 1 1>;
         scroller {
             layers = <3>;
             input-processors = <&zip_xy_to_scroll_mapper>;
@@ -89,12 +87,10 @@
 
     input_split_listener {
         /delete-property/ input-processors;
-        input-processors = <&zip_xy_scaler 1 1>;
         scroller {
             layers = <3>;
             input-processors = <&zip_xy_to_scroll_mapper>;
         };
     };
 };
-
 #endif
