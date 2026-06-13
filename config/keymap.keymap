@@ -59,3 +59,28 @@
         };
     };
 };
+/*
+ * 【完全最適化コード】
+ * torabo-tsuki-lp の Snippets 構造に準拠した書き方です。
+ * 左手（Central側）がビルドされる時にのみ、DYAのプロセッサを
+ * トラックボールのリスナーに強制的に上書き挿入します。
+ */
+
+#if defined(CONFIG_ZMK_SPLIT_ROLE_CENTRAL) || !defined(CONFIG_ZMK_SPLIT)
+#include <input/processors.dtsi>
+#include <input/processors/runtime-input-processor.dtsi>
+
+/ {
+    /* 
+     * snippets/input-listener.overlay 内で定義されている
+     * 本物のトラックボールリスナーを直接上書きします。
+     */
+    trackball_listener: trackball_listener {
+        /* 既存の固定化された速度設定やレイヤー設定を削除 */
+        /delete-property/ input-processors;
+        
+        /* DYA Studioのランタイムプロセッサに置き換え */
+        input-processors = <&mouse_runtime_input_processor>;
+    };
+};
+#endif
