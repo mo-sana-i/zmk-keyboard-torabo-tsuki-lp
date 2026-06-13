@@ -84,3 +84,30 @@
     };
 };
 #endif
+#if defined(CONFIG_ZMK_SPLIT_ROLE_CENTRAL) || !defined(CONFIG_ZMK_SPLIT)
+#include <input/processors.dtsi>
+#include <input/processors/runtime-input-processor.dtsi>
+
+/ {
+    /* 
+     * フォーク元のスニペット構造に対応するため、
+     * 中央（Central）で周辺機器の入力を受け取る可能性のある
+     * 全てのノード名に対して、DYAのプロセッサを強制的に刺します。
+     * （存在しないノードは無視されるためエラーになりません）
+     */
+    trackball_listener: trackball_listener {
+        /delete-property/ input-processors;
+        input-processors = <&mouse_runtime_input_processor>;
+    };
+
+    input_split_listener: input_split_listener {
+        /delete-property/ input-processors;
+        input-processors = <&mouse_runtime_input_processor>;
+    };
+
+    trackball_split: trackball_split {
+        /delete-property/ input-processors;
+        input-processors = <&mouse_runtime_input_processor>;
+    };
+};
+#endif
