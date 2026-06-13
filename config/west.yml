@@ -30,7 +30,7 @@ manifest:
       remote: sekigon-gonnoc
       revision: main
     - name: zmk-module-runtime-input-processor
-      remote: sekigon-gonnoc
+      remote: cormoran
       revision: main
   self:
     path: config
