@@ -33,3 +33,14 @@ include:
     shield: torabo_tsuki_lp_right
     snippet: "studio-rpc-usb-uart split-central input-trackball input-listener split-input-hires-dial torabo-caps torabo-rpc-tunnel"
     artifact-name: torabo_tsuki_lp_dial_right_central
+  # ===== OM機：右central(玉+LED駆動) / 左peripheral(拡張パッド+LED) =====
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_right
+    snippet: "studio-rpc-usb-uart split-central input-trackball input-listener input-split-listener torabo-led-live torabo-caps torabo-rpc-tunnel torabo-timing torabo-live-feed torabo-trackball torabo-macros torabo-combos torabo-reserved-layers profile-om"
+    cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_RESERVED_LAYERS=5;-DTORABO_RL_KEYS=44"
+    artifact-name: torabo_tsuki_lp_om_right_central
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_left
+    snippet: "studio-rpc-usb-uart input-trackpad-ext torabo-led-ext-periph torabo-timing-split"
+    cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_PAD_EXT_ROLE=2;-DTORABO_PAD_EXT_REG=0;-DTORABO_PAD_EXT_KIND=1"
+    artifact-name: torabo_tsuki_lp_om_left_peripheral
