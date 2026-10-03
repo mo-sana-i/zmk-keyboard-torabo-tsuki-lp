@@ -37,7 +37,7 @@ include:
   - board: bmp_boost
     shield: torabo_tsuki_lp_right
     snippet: "studio-rpc-usb-uart split-central input-trackball input-listener input-split-listener torabo-led-live torabo-caps torabo-rpc-tunnel torabo-timing torabo-live-feed torabo-trackball torabo-trackpad-live torabo-macros torabo-combos torabo-reserved-layers"
-    cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_RESERVED_LAYERS=5;-DTORABO_RL_KEYS=44;-DTORABO_TP_LIVE=2"
+    cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_RESERVED_LAYERS=5;-DTORABO_RL_KEYS=44;-DTORABO_TP_LIVE=2;-DTORABO_LIVE_TRACKBALL"
     artifact-name: torabo_tsuki_lp_om_right_central
   - board: bmp_boost
     shield: torabo_tsuki_lp_left
@@ -48,7 +48,7 @@ include:
   - board: bmp_boost
     shield: torabo_tsuki_lp_right
     snippet: "studio-rpc-usb-uart split-central split-input-hires-dial input-trackball input-listener torabo-caps torabo-rpc-tunnel torabo-timing torabo-live-feed torabo-trackball torabo-macros torabo-combos torabo-reserved-layers profile-dial"
-    cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_RESERVED_LAYERS=5;-DTORABO_RL_KEYS=45"
+    cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_RESERVED_LAYERS=5;-DTORABO_RL_KEYS=45;-DTORABO_LIVE_TRACKBALL"
     artifact-name: torabo_tsuki_lp_dial_studio_right_central
   - board: bmp_boost
     shield: torabo_tsuki_lp_left
