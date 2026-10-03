@@ -44,3 +44,13 @@ include:
     snippet: "studio-rpc-usb-uart input-trackpad-ext torabo-led-ext-periph torabo-timing-split"
     cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_PAD_EXT_ROLE=2;-DTORABO_PAD_EXT_REG=0;-DTORABO_PAD_EXT_KIND=1"
     artifact-name: torabo_tsuki_lp_om_left_peripheral
+  # ===== ダイヤル＋フルStudio版：右central(玉+全機能) / 左peripheral(ダイヤル) =====
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_right
+    snippet: "studio-rpc-usb-uart split-central split-input-hires-dial input-trackball input-listener torabo-caps torabo-rpc-tunnel torabo-timing torabo-live-feed torabo-trackball torabo-macros torabo-combos torabo-reserved-layers profile-dial"
+    cmake-args: -DDTS_EXTRA_CPPFLAGS="-DTORABO_RESERVED_LAYERS=5;-DTORABO_RL_KEYS=45"
+    artifact-name: torabo_tsuki_lp_dial_studio_right_central
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_left
+    snippet: "studio-rpc-usb-uart input-hires-dial torabo-timing-split"
+    artifact-name: torabo_tsuki_lp_dial_studio_left_peripheral
