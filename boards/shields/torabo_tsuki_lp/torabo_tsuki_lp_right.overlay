@@ -5,6 +5,7 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+#if !defined(TORABO_LIVE_TRACKBALL)
 &pointing_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
@@ -25,6 +26,7 @@
         >;
     };
 };
+#endif
 
 &size_s_transform {
     col-offset = <7>;
